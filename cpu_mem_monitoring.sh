@@ -42,3 +42,9 @@ echo "Disk space Available: $Disk_available"
 
 #calling the function
 calc
+
+
+#to configure with aws sns using aws cli 
+#perform aws configure
+#SNS_TOPIC_ARN="arn:aws:sns:us-east-1:123456789012:YourSNSTopic"
+#aws sns publish --topic-arn "$SNS_TOPIC_ARN" --message "$message" --subject "System Monitoring Alert"
