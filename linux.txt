@@ -1,0 +1,41 @@
+*******Linux admin interview questions and answers*******
+
+1. **Explain the Linux boot process.** 
+
+ The BIOS loads the bootloader (like GRUB), which loads the kernel. The kernel initializes hardware, mounts the root filesystem, and starts `init` or `systemd`, loading system services and setting the default runlevel or target.
+
+2. **How would you troubleshoot a slow server?** 
+
+ Check system resources (`top`, `vmstat`, `free`) for CPU, memory, or I/O issues. Review disk usage (`df`, `du`) and network traffic (`netstat`, `ss`). Identify resource-heavy processes and adjust configurations, terminate processes, or consider hardware upgrades.
+
+3. **Describe Linux file permissions and how to change them.** 
+
+ Permissions include read, write, and execute for the owner, group, and others. Use `chmod` to modify permissions (e.g., `chmod 755 filename`), `chown` to change ownership, and `chgrp` to change the group.
+
+4. **What is LVM, and how do you manage it?** 
+
+ LVM (Logical Volume Manager) enables flexible disk management across physical volumes. Commands include `pvcreate` (create physical volume), `vgcreate` (create volume group), `lvcreate` (create logical volume), and `lvextend`/`lvreduce` for resizing.
+
+5. **How do you secure a Linux server?** 
+
+ Disable unnecessary services, configure `iptables`/`firewalld`, enforce SSH security (disable root login, use SSH keys), enable SELinux/AppArmor, apply patches, monitor logs, and use Fail2ban for brute-force prevention.
+
+6. **How do you manage services in Linux?** 
+
+ Use `systemctl` for `systemd` services (`systemctl start service`, `systemctl enable service`). On older systems, use `service` or `init.d` scripts.
+
+7. **How do you add a user and manage permissions?** 
+
+ Use `useradd username` and `passwd username` to add users. Add users to groups with `usermod -aG groupname username`. Adjust file permissions with `chmod` and `chown`.
+
+8. **How do you monitor server performance?** 
+
+ Use `top` or `htop` for real-time monitoring, `sar` for historical data, `iostat` for I/O stats, and `netstat` or `ss` for network connections. Monitor load average, keeping it below the number of CPU cores.
+
+9. **What steps would you take for filesystem corruption recovery?** 
+
+ Boot into single-user mode or use a live CD, run `fsck` to repair, and restore from backups if needed. Regular backups are essential for data protection.
+
+10. **How do you automate tasks in Linux?** 
+
+ Use `cron` for scheduled tasks (`crontab -e`). For complex automation, use shell scripts and tools like `Ansible` or `Puppet` for consistent deployments across servers.
